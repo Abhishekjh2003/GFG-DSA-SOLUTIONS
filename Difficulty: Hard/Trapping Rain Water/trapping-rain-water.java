@@ -1,41 +1,27 @@
 class Solution {
-    public int maxWater(int height[]) {
-        // code here
-                int i=0;
-        int j=height.length-1;
-        int leftmax=0;
-        int rightmax=0;
-        int water =0;
+    public int maxWater(int arr[]) {
+        int left = 0, right = arr.length - 1;
+        int leftMax = 0, rightMax = 0;
+        int water = 0;
 
-        while(i<j)
-        {
-            if(height[i]< height[j])
-
-            {
-                if(height[i]>=leftmax)
-                {
-                    leftmax=height[i];
-
-                }else
-                {
-                    water+=leftmax-height[i];
+        while (left < right) {
+            if (arr[left] <= arr[right]) {
+                if (arr[left] >= leftMax) {
+                    leftMax = arr[left];
+                } else {
+                    water += leftMax - arr[left];
                 }
-                i++;
-
-            }else
-            {
-                if(height[j]>=rightmax)
-                {
-                    rightmax=height[j];
-
-                }else
-                {
-                    water+=rightmax-height[j];
+                left++;
+            } else {
+                if (arr[right] >= rightMax) {
+                    rightMax = arr[right];
+                } else {
+                    water += rightMax - arr[right];
                 }
-                j--;
+                right--;
             }
-
         }
+
         return water;
     }
 }
