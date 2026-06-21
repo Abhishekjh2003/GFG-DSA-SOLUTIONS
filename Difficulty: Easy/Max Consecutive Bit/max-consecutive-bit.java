@@ -1,8 +1,6 @@
 class Solution {
     public int maxConsecBits(int[] arr) {
-        // code hereint 
-        
-           int maxCount = 1;
+        int maxCount = 1;
         int count = 1;
 
         for (int i = 1; i < arr.length; i++) {
