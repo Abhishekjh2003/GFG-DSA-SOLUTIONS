@@ -1,23 +1,23 @@
 class Solution {
-    public static int findEquilibrium(int arr[]) {
-        // code here
-        int total=0;
-        for(int num:arr)
-        {
-            total+=num;
+    public int findEquilibrium(int[] arr) {
+        long totalSum = 0;
+
+        for (int num : arr) {
+            totalSum += num;
         }
-        int leftsum =0;
-        for(int i=0;i<arr.length;i++)
-        {
-            int rightsum =total-leftsum-arr[i];
-            
-            if(leftsum ==rightsum )
-            {
-                return i;
+
+        long leftSum = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            totalSum -= arr[i]; // right sum
+
+            if (leftSum == totalSum) {
+                return i; // return index
             }
-            
-            leftsum+=arr[i];
+
+            leftSum += arr[i];
         }
+
         return -1;
     }
 }
