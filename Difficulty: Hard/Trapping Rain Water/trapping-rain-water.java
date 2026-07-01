@@ -3,7 +3,6 @@ class Solution {
         int left = 0, right = arr.length - 1;
         int leftMax = 0, rightMax = 0;
         int water = 0;
-
         while (left < right) {
             if (arr[left] <= arr[right]) {
                 if (arr[left] >= leftMax) {
@@ -21,7 +20,6 @@ class Solution {
                 right--;
             }
         }
-
         return water;
     }
 }
