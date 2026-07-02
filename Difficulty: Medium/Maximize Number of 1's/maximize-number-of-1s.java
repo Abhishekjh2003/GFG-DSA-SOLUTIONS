@@ -1,28 +1,24 @@
 class Solution {
-    public int maxOnes(int nums[], int k) {
-        // code here
-        int i=0;
-        int count =0;
-        int maxlen =0;
-        
-        for(int j=0;j<nums.length;j++)
-        {
-            if(nums[j]==0)
-            {
-                count++;
+    public int maxOnes(int arr[], int m) {
+
+        int left = 0;
+        int zeroCount = 0;
+        int maxLen = 0;
+
+        for (int right = 0; right < arr.length; right++) {
+
+            if (arr[right] == 0)
+                zeroCount++;
+
+            while (zeroCount > m) {
+                if (arr[left] == 0)
+                    zeroCount--;
+                left++;
             }
-            while(count>k)
-            {
-                if(nums[i]==0)
-                {
-                    count--;
-                    
-                }
-                i++;
-            }
-            maxlen=Math.max(maxlen,j-i+1);
+
+            maxLen = Math.max(maxLen, right - left + 1);
         }
-        return maxlen;
-        
+
+        return maxLen;
     }
 }
