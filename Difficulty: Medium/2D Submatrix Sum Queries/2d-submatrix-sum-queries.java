@@ -3,9 +3,7 @@ class Solution {
         // code here
         int n = mat.length;
         int m = mat[0].length;
-
         int[][] prefix = new int[n + 1][m + 1];
-
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= m; j++) {
                 prefix[i][j] = mat[i - 1][j - 1]
@@ -14,9 +12,7 @@ class Solution {
                              - prefix[i - 1][j - 1];
             }
         }
-
         ArrayList<Integer> ans = new ArrayList<>();
-
         for (int[] q : queries) {
             int r1 = q[0];
             int c1 = q[1];
@@ -30,7 +26,6 @@ class Solution {
 
             ans.add(sum);
         }
-
         return ans;
     }
 }
