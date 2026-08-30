@@ -1,17 +1,11 @@
 class Solution {
-    // Function to calculate factorial of a number.
-    // System.out.println(factorial(n));
-    int factorial(int n) {
-        // code here
-        
-        if(n==1 || n==0)
-        {
-            return 1;
-            
+    static int factorial(int n) {
+        int fact = 1;
+
+        for (int i = 1; i <= n; i++) {
+            fact *= i;
         }
-        else 
-        {
-            return n*factorial(n-1);
-        }
+
+        return fact;
     }
 }
