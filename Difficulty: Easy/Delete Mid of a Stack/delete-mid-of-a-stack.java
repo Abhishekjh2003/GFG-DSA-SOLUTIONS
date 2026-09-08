@@ -1,27 +1,21 @@
-import java.util.Stack;
+import java.util.*;
 
 class Solution {
-
-    public void deleteMid(Stack<Integer> st) {
-        int n = st.size();
-        delete(st, n, 0);
+    public void deleteMid(Stack<Integer> s) {
+        int n = s.size();
+        deleteMiddle(s, n, 0);
     }
 
-    private void delete(Stack<Integer> st, int n, int count) {
-
-        // Middle element reached
-        if (count == n / 2) {
-            st.pop();
+    private void deleteMiddle(Stack<Integer> s, int n, int current) {
+        if (current == n / 2) {
+            s.pop();
             return;
         }
 
-        // Remove top temporarily
-        int x = st.pop();
+        int temp = s.pop();
 
-        // Recursively reach middle
-        delete(st, n, count + 1);
+        deleteMiddle(s, n, current + 1);
 
-        // Put element back
-        st.push(x);
+        s.push(temp);
     }
 }
