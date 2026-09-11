@@ -9,14 +9,11 @@ class Solution {
             rev = rev * 10 + n % 10;
             n /= 10;
         }
-
         return rev;
     }
 
     long power(long x, int n) {
-
         long result = 1;
-
         while (n > 0) {
 
             if (n % 2 == 1) {
